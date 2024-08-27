@@ -22,11 +22,11 @@ WORKDIR /home/user
 
 # Clone the repository
 RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
-WORKDIR ./stable-diffusion-webui
+WORKDIR /home/user/stable-diffusion-webui
 
 # Create and activate virtual environment
 RUN python3 -m venv venv
-ENV PATH="./stable-diffusion-webui/venv/bin:$PATH"
+ENV PATH="/home/user/stable-diffusion-webui/venv/bin:$PATH"
 
 # Install Python dependencies
 RUN pip install --upgrade pip && \
