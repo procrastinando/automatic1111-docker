@@ -1,0 +1,15 @@
+services:
+  sd-webui:
+    build: .
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./outputs:/home/user/stable-diffusion-webui/outputs
+      - ./models:/home/user/stable-diffusion-webui/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
